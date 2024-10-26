@@ -1,6 +1,9 @@
 const chromium = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
 const fs = require('fs');
+const express = require('express')
+const app = express()
+
 
 const runPup = async () => {
     let browser = null;
@@ -40,4 +43,18 @@ const runPup = async () => {
     }
 };
 
+
 runPup().then(() => console.log('Screenshot process completed.'));
+
+
+app.get('/' , (req ,res) => {
+    res.send("App is running")
+})
+
+app.get('/new-req' , async(req ,res) => {
+    await runPup()
+})
+
+app.listen(5012 , () => {
+    console.log('app is running ')
+})
