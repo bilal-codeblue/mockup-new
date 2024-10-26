@@ -8,7 +8,7 @@ const app = express()
 const runPup = async () => {
     let browser = null;
     try {
-        const isLocal = !process.env.AWS_REGION;
+        const isLocal = false;
 
         const launchOptions = isLocal
             ? {
