@@ -27,7 +27,7 @@ const runPup = async () => {
         const page = await browser.newPage();
         await page.goto('https://google.com', { waitUntil: 'networkidle2' });
 
-        const screenshotPath = 'screenshot.png';
+        const screenshotPath = '/tmp/screenshot.png';
         await page.screenshot({ path: screenshotPath });
 
         console.log(`Screenshot saved at ${screenshotPath}`);
